@@ -1,0 +1,17 @@
+﻿@model System.Text.RegularExpressions.MatchCollection 
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Reg ex</h2>
+
+
+    <ul>
+        @foreach (var item in Model)
+        {
+                <li>@item</li>
+        }
+
+    </ul>
+

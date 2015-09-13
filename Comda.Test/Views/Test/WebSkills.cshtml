@@ -1,0 +1,47 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Web skills</h2>
+<div id="container" class="clearfix">
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+</div>
+<div>
+    <input type="button" id="btn-change-color" value="Change color"/>
+</div>
+
+<script type="text/javascript">
+    var app = {
+        squareClick : function() {
+            var item = $(this);
+            var timeout = 2000;
+
+            var intervalId = setInterval(function() {
+                item.toggleClass("yellow");
+
+                timeout -= 200;
+
+                if (timeout <= 0) {
+                    clearInterval(intervalId);
+                }
+            }, 200);
+
+            
+            item.data("timeout", 2000);
+        },
+
+        changeColor: function() {
+            var items = $("div.square");
+            items.each(function() { $(this).toggleClass("yellow"); });
+        }
+    };
+
+    $(function () {
+        $("#btn-change-color").click(app.changeColor);
+        $("div.square").click(app.squareClick);
+    });
+</script>
