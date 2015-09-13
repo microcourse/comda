@@ -29,9 +29,7 @@ namespace Comda.Server
                 t.Start(i);
                 Console.WriteLine("Tread {0} started", i);
             }
-
-
-
+            
             watcher = new FileSystemWatcher()
             {
                 Path = dir,
